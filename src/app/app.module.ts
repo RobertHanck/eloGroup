@@ -9,19 +9,22 @@ import {
   MatInputModule,
   MatButtonModule,
   MatCheckboxModule,
-  MatIconModule
+  MatIconModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { BlockUIModule } from 'ng-block-ui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterUserComponent } from './register-user/register-user.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/guard/auth.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterUserComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -31,9 +34,21 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    }),
+    LayoutModule,
+    BlockUIModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="fix-nav">
+  <div class="nav-brand">
+    <a [routerLink]="['/']">
+      <img src="../assets/Images/elogroup.PNG" alt="EloGroup" class="topnav-image" />
+    </a>
+  </div>
+  <h3 class="hidden-sm">{{ title }}</h3>
+  <span class="nav-spacer"></span>
+
+  <button mat-icon-button (click)="onLoggedout()" matTooltip="Sair">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
