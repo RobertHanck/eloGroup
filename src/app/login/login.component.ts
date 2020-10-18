@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit {
   createSignInFormGroup() {
     this.signInFormGroup = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.maxLength(120)]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
-    });
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50), Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i)]],
+    }); 
   }
 
   crateSignUpFormGroup() {
     this.signUpFormGroup = this.formBuilder.group(
       {
         userName: ['', [Validators.required, Validators.maxLength(120)]],
-        password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
+        password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50), Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
       },
       {
