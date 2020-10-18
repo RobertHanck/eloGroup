@@ -1,3 +1,7 @@
 .footer-buttons {
   margin-top: 20px;
 }
+
+fieldset {
+width: 10%;
+}

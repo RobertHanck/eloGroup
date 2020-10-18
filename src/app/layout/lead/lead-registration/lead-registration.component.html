@@ -40,26 +40,29 @@
       <mat-error *ngIf="formGroup.controls.customerEmail.invalid">Campo obrigatório</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-sm-12">
-    <label>Oportunidades *</label>
-    <table>
-        <thead>
-          <tr class="table-active">
-            <th scope="col">
-                <input type="checkbox" class="check_master" [checked]="checkAllOpportunities.isSelected == true" (click)="checkAll(!checkAllOpportunities.isSelected)">
-            </th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let opportunities of checkOpportunities">
-                <td>
-                    <input type="checkbox" id="opportunities.id" name="item.name" class="check" [checked]="opportunities.isSelected == true" (click)="checkCheck(opportunities, !opportunities.isSelected)" formControlName="customerOpportunities" required>
-                </td>
-                <td>{{opportunities.description}}</td>
+  <div>
+    <fieldset>
+      <legend>Oportunidades *</legend>
+      <table>
+          <thead>
+            <tr class="table-active">
+              <th scope="col">
+                  <input type="checkbox" class="check_master" [checked]="checkAllOpportunities.isSelected == true" (click)="checkAll(!checkAllOpportunities.isSelected)">
+              </th>
+              <th scope="col"></th>
             </tr>
-        </tbody>
-    </table>
+          </thead>
+          <tbody>
+              <tr *ngFor="let opportunities of checkOpportunities">
+                  <td>
+                      <input type="checkbox" id="opportunities.id" name="item.name" class="check" [checked]="opportunities.isSelected == true" (click)="checkCheck(opportunities, !opportunities.isSelected)" formControlName="customerOpportunities" required>
+                  </td>
+                  <td>{{opportunities.description}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </fieldset>
+    
   </div>
 
   <div class="footer-buttons">
