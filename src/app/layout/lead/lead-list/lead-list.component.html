@@ -1,3 +1,40 @@
 <div>
   <button mat-raised-button color="primary" routerLink="/leads/new">Novo Lead(+)</button>
 </div>
+
+<div class="root">
+  <div class="board">
+    <div class="board-wrapper">
+      <div class="board-columns">
+        <div
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          class="board-columns"
+          (cdkDropListDropped)="dropGrid($event)"
+        >
+          <div cdkDragLockAxis="x" class="board-column" *ngFor="let column of board.columns" cdkDrag>
+            <div class="column-title" cdkDragHandle>
+              {{ column.name }}
+            </div>
+            <div
+              class="tasks-container"
+              id="{{ column.id }}"
+              [cdkDropListConnectedTo]="[
+                statusClienteEmPotencial.toString(),
+                statusDadosConfirmados.toString(),
+                statusReuniaoAgendada.toString()
+              ]"
+              cdkDropList
+              [cdkDropListData]="column.items"
+              (cdkDropListDropped)="drop($event)"
+            >
+              <div class="task" *ngFor="let item of column.items" cdkDrag>
+                {{ item['customerName'] }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
