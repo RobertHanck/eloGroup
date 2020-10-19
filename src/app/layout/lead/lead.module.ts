@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LeadRoutingModule } from './lead-routing.module';
 import { LeadListComponent } from './lead-list/lead-list.component';
 import { LeadRegistrationComponent } from './lead-registration/lead-registration.component';
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -22,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     FormsModule,
     MatButtonModule,
-    FlexLayoutModule.withConfig({ addFlexToParent: false })
+    FlexLayoutModule.withConfig({ addFlexToParent: false }),
+    MatListModule,
   ],
 })
 export class LeadModule {}
