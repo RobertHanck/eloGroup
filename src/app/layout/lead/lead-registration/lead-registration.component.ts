@@ -36,7 +36,7 @@ export class LeadRegistrationComponent implements OnInit {
 
   createFormGroup() {
     this.formGroup = this.formBuilder.group({
-      customerName: ['', [Validators.required, Validators.maxLength(120)]],
+      customerName: ['', [Validators.required, Validators.maxLength(120), Validators.pattern(/[a-zA-Z\u00C0-\u00FF ]+/i)]],
       customerPhone: ['', [Validators.required, Validators.maxLength(12)]],
       customerEmail: ['', [Validators.required, Validators.maxLength(255)]],
     });
